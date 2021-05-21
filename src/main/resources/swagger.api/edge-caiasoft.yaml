@@ -9,7 +9,7 @@ paths:
     get:
       responses:
         '200':
-          description: Success response
+          description: Success get accession item
           content:
             application/json:
               schema:
@@ -38,18 +38,18 @@ paths:
                 $ref: "#/components/schemas/returnItemResponse"
         '400':
           description: Bad request
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: Bad request
+            content:
+              text/plain:
+                schema:
+                  type: string
+                  example: Bad request
         '500':
           description: Internal server error
           content:
             text/plain:
               schema:
                 type: string
-                example: Internal server error
+                example: Internal server error  
       description: Perform item return
       operationId: returnItemByBarcode
       requestBody:
@@ -59,10 +59,32 @@ paths:
               type: string
         required: false
       parameters:
-        - $ref: "#/components/parameters/item-barcode"
+        - $ref: "#/components/parameters/item-barcode"   
         - $ref: "#/components/parameters/remote-storage-id"
         - $ref: "#/components/parameters/x-okapi-token"
         - $ref: "#/components/parameters/x-okapi-tenant"
+  /Requests/{requestId}/route/{remoteStorageConfigurationId}:
+     post:
+       responses:
+         '200':
+           description: Success check-in by requestId and remoteStorageConfigurationId
+           content:
+             text/plain:
+               schema:
+                 type: string
+         '500':
+           description: Internal server error
+           content:
+             text/plain:
+               schema:
+                 type: string
+                 example: Internal server error
+       operationId: checkInByHoldId
+       parameters:
+         - $ref: "#/components/parameters/request-id"
+         - $ref: "#/components/parameters/remote-storage-id"
+         - $ref: "#/components/parameters/x-okapi-token"
+         - $ref: "#/components/parameters/x-okapi-tenant"
 components:
   schemas:
     accessionItem:
@@ -92,6 +114,12 @@ components:
       required: true
       schema:
         $ref: schemas/uuid.json
+    request-id:
+      name: requestId
+      in: path
+      required: true
+      schema:
+        type: string
     x-okapi-token:
       name: x-okapi-token
       in: header

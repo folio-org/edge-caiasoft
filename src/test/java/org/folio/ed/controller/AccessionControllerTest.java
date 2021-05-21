@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 
 import java.util.Base64;
 
+import static org.folio.ed.service.CaiaSoftSecurityManagerService.CAIA_SOFT_CLIENT_AND_USERNAME;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -17,7 +18,7 @@ public class AccessionControllerTest extends TestBase {
   private static final String ACCESSION_URL = "http://localhost:%s/caiasoftService/ItemBarcodes/%s/accessioned/%s?apikey=%s";
   private static final String REMOTE_STORAGE_CONFIGURATION_ID = "de17bad7-2a30-4f1c-bee5-f653ded15629";
   private static final String ITEM_BARCODE = "1001";
-  private static final String TENANT_USER_DATA_FOR_APIKEY = "{\"t\":\"test_tenant\", \"u\":\"user\", \"s\":\"salt\"}";
+  private static final String TENANT_USER_DATA_FOR_APIKEY = "{\"t\":\"test_tenant\", \"u\":\"" + CAIA_SOFT_CLIENT_AND_USERNAME + "\", \"s\":\"salt\"}";
 
   @Test
   public void canGetAccessionItem() {
