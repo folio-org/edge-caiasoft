@@ -33,13 +33,12 @@ public interface RemoteStorageClient {
   @PostMapping(path = "/return/{remoteStorageConfigurationId}", produces = APPLICATION_JSON)
   ReturnItemResponse returnItemById(@PathVariable("remoteStorageConfigurationId") String remoteStorageConfigurationId,
     @RequestBody CheckInItem checkInItem, @RequestHeader(TENANT) String tenantId, @RequestHeader(TOKEN) String okapiToken);
-    @RequestHeader(TOKEN) String okapiToken);
 
   @PostMapping(path = "/retrieve/{remoteConfigurationId}/checkInItemByHoldId", produces = "text/plain")
   ResponseEntity<String> checkInByHoldId (@PathVariable("remoteConfigurationId") String configurationId,
     CheckInRequest checkInRequest, @RequestHeader(TENANT) String tenantId,
     @RequestHeader(TOKEN) String okapiToken);
-  
+
   @GetMapping("/configurations")
   ResultList<Configuration> getStorageConfigurations(@RequestHeader(TENANT) String tenantId,
     @RequestHeader(TOKEN) String okapiToken);
@@ -48,7 +47,7 @@ public interface RemoteStorageClient {
   ResultList<RetrievalQueueRecord> getRetrievalsByQuery(@RequestParam("storageId") String storageId,
     @RequestParam("retrieved") Boolean retrieved, @RequestParam("limit") int limit, @RequestHeader(TENANT) String tenantId,
     @RequestHeader(TOKEN) String okapiToken);
-  
+
   @PutMapping("/retrievals/barcode/{barcode}")
   ResponseEntity<String> setRetrievalByBarcode(@PathVariable("barcode") String barcode, @RequestHeader(TENANT) String tenantId,
     @RequestHeader(TOKEN) String okapiToken);
