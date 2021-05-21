@@ -16,6 +16,7 @@ API provides the following URLs for working with remote storage configurations:
 | Method | URL| Description | 
 |---|---|---|
 | GET | /caiasoftService/ItemBarcodes/{itemBarcode}/accessioned/{remoteStorageConfigurationId} | The polling API for accessions |
+| POST | /caiasoftService/RequestBarcodes/{itemBarcode}/reshelved/{remoteStorageConfigurationId} | API for returning an item |
 
 ### Required Permissions
 Institutional users should be granted the following permissions in order to use this edge API:
