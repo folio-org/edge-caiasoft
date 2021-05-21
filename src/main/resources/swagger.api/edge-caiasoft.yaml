@@ -27,6 +27,42 @@ paths:
         - $ref: "#/components/parameters/remote-storage-id"
         - $ref: "#/components/parameters/x-okapi-token"
         - $ref: "#/components/parameters/x-okapi-tenant"
+  /RequestBarcodes/{itemBarcode}/reshelved/{remoteStorageConfigurationId}:
+    post:
+      responses:
+        '201':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/returnItemResponse"
+        '400':
+          description: Bad request
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Bad request
+        '500':
+          description: Internal server error
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Internal server error
+      description: Perform item return
+      operationId: returnItemByBarcode
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: false
+      parameters:
+        - $ref: "#/components/parameters/item-barcode"
+        - $ref: "#/components/parameters/remote-storage-id"
+        - $ref: "#/components/parameters/x-okapi-token"
+        - $ref: "#/components/parameters/x-okapi-tenant"
 components:
   schemas:
     accessionItem:
@@ -39,6 +75,10 @@ components:
               type: array
               items:
                 $ref: "#/components/schemas/accessionItem"
+    checkInItem:
+      $ref: schemas/checkInItem.json
+    returnItemResponse:
+      $ref: schemas/returnItemResponse.json
   parameters:
     item-barcode:
       name: itemBarcode
@@ -51,7 +91,7 @@ components:
       in: path
       required: true
       schema:
-        type: string
+        $ref: schemas/uuid.json
     x-okapi-token:
       name: x-okapi-token
       in: header
