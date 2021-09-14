@@ -19,6 +19,12 @@ API provides the following URLs for working with remote storage configurations:
 | POST | /caiasoftService/RequestBarcodes/{itemBarcode}/reshelved/{remoteStorageConfigurationId} | API for returning an item |
 | POST | /caiasoftService/Requests/{requestId}/route/{remoteStorageConfigurationId} | Сheck-in by requestId and remoteStorageConfigurationId |
 
+### Rancher deployment
+
+1. create the proper user needed for this module ( i dnt know the exact username )
+2. add this user in ephemeral properties file
+3. find the ephermeral properties file location inside the caiasoft container and modify the path of this file in the javaoption
+
 ### Deployment information
 1. CaiaSoft connection should be established from the CaiaSoft edge Folio module. Therefore CaiaSoft edge module
    needs to know the name of all the tenants, which has CaiaSoft connection. For the ephemeral configuration these names locate in the
