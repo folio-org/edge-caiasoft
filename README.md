@@ -32,6 +32,13 @@ API provides the following URLs for working with remote storage configurations:
 3. User with name `{{username}}`, password `{{password}}`, remote-storage.all permissions should be created on FOLIO. After that apikey can
    be generated for making calls to Edge CaiaSoft API.
 
+#### Rancher
+
+1. new user must be created with the name : stagingDirector
+2. add this user to ephemeral properties file in rancher
+3. modify java option to include this user
+4. check that mod-remote-storage is working properly
+
 ### Create CaiaSoft configuration
 1. Log in to Folio, go to "Settings" -> "Remote storage" -> "Configurations", click "New" button.
 2. Enter General information settings:
