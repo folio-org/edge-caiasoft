@@ -1,5 +1,14 @@
 ## 1.1.0 - Unreleased
 
+## 1.0.1 - Released
+
+The primary focus of this release is fixing log4j vulnerability
+
+[Full Changelog](https://github.com/folio-org/edge-caiasoft/compare/v1.0.0...v1.0.1)
+
+### Bug Fixes
+* [EDGCSOFT-19](https://issues.folio.org/browse/EDGCSOFT-19) - Kiwi R3 2021 - Log4j vulnerability verification and correction
+
 ## 1.0.0 - Released
 
 The primary focus of this release was to implement backend logic for CaiaSoft integration, fixing deployment issue
