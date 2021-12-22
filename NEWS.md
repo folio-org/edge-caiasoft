@@ -1,5 +1,14 @@
 ## 1.1.0 - Unreleased
 
+## 1.0.2 - Released
+
+The primary focus of this release is log4j upgrade
+
+[Full Changelog](https://github.com/folio-org/edge-caiasoft/compare/v1.0.1...v1.0.2)
+
+### Bug Fixes
+* [EDGCSOFT-24](https://issues.folio.org/browse/EDGCSOFT-19) - Kiwi R3 2021 - Log4j edge- modules 2.17.0 upgrade
+
 ## 1.0.1 - Released
 
 The primary focus of this release is fixing log4j vulnerability
