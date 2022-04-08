@@ -1,5 +1,14 @@
 ## 1.3.0 - Unreleased
 
+## 1.2.1 Released
+
+This release was focused on spring-boot-starter-parent upgrade to 2.6.6
+
+[Full Changelog](https://github.com/folio-org/edge-caiasoft/compare/v1.2.0...v1.2.1)
+
+### Bug Fixes
+* [EDGCSOFT-36](https://issues.folio.org/browse/EDGCSOFT-36) - Spring4Shell Lotus R1 2022 (CVE-2022-22965)
+
 ## 1.2.0 - Released
 
 This release was focused on log4j vulnerability fix and minor improvements
