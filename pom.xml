@@ -27,7 +27,7 @@
     <mapstruct.version>1.4.1.Final</mapstruct.version>
     <edge-caiasoft.yaml.file>src/main/resources/swagger.api/edge-caiasoft.yaml</edge-caiasoft.yaml.file>
     <sonar.exclusions>src/main/java/org/folio/ed/domain/**</sonar.exclusions>
-    <edge-common-spring.version>2.0.1</edge-common-spring.version>
+    <edge-common-spring.version>2.0.2</edge-common-spring.version>
     <wiremock.version>2.27.2</wiremock.version>
     <awaitility.version>4.2.0</awaitility.version>
   </properties>
