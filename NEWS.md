@@ -1,5 +1,14 @@
 ## 1.4.0 - Unreleased
 
+## 1.3.1 - Released
+
+This release includes dependency update
+
+[Full Changelog](https://github.com/folio-org/edge-caiasoft/compare/v1.3.0...v1.3.1)
+
+### Technical tasks
+* [EDGCSOFT-44](https://issues.folio.org/browse/EDGCSOFT-44) - Update module to a new version of edge-common-spring
+
 ## 1.3.0 - Released
 
 This release includes minor improvements (libraries dependencies cleanup and update)
