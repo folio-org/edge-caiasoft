@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.folio.ed.domain.dto.Configuration;
 import org.folio.ed.domain.dto.RetrievalQueueRecord;
 import org.folio.ed.handler.RetrievalQueueRecordHandler;
-import org.springframework.integration.dsl.IntegrationFlows;
+import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.Pollers;
 import org.springframework.integration.dsl.context.IntegrationFlowContext;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -45,7 +45,7 @@ public class CaiaSoftIntegrationService {
 
   public IntegrationFlowContext.IntegrationFlowRegistration registerRetrievalsPoller(Configuration configuration) {
     return integrationFlowContext
-      .registration(IntegrationFlows
+      .registration(IntegrationFlow
         .fromSupplier(() -> remoteStorageService.getRetrievalQueueRecords(configuration.getId(), configuration.getTenantId(),
           sms.getConnectionParameters(configuration.getTenantId()).getOkapiToken()),
           p -> p.poller(Pollers.fixedDelay(resolvePollingTimeFrame(configuration.getAccessionDelay(),
@@ -58,7 +58,7 @@ public class CaiaSoftIntegrationService {
 
   public IntegrationFlowContext.IntegrationFlowRegistration registerRetrievalQueueRecordFlow(Configuration configuration) {
     return integrationFlowContext
-      .registration(IntegrationFlows
+      .registration(IntegrationFlow
         .from("retrievalQueueRecordFlow")
         .handle(RetrievalQueueRecord.class,(p, h) -> retrievalHandler.handle(p, configuration))
         .get())

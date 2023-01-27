@@ -17,6 +17,10 @@ spring:
     enabled: false
   flyway:
     enabled: false
+  cloud:
+    openfeign:
+      okhttp:
+        enabled: true
 management:
   endpoints:
     web:
