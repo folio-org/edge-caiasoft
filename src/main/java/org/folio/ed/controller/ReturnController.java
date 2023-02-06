@@ -3,6 +3,7 @@ package org.folio.ed.controller;
 import static org.folio.edge.api.utils.Constants.APPLICATION_JSON;
 import static org.folio.edge.api.utils.Constants.TEXT_PLAIN;
 
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.folio.ed.domain.dto.ReturnItemResponse;
 import org.folio.ed.rest.resource.RequestBarcodesApi;
@@ -28,11 +29,13 @@ public class ReturnController implements RequestBarcodesApi {
   @PostMapping(value = "/RequestBarcodes/{itemBarcode}/reshelved/{remoteStorageConfigurationId}",
     produces = {APPLICATION_JSON, TEXT_PLAIN},
     consumes = TEXT_PLAIN)
-  public ResponseEntity<ReturnItemResponse> returnItemByBarcode(@PathVariable("itemBarcode") String itemBarcode,
-    @PathVariable("remoteStorageConfigurationId") String remoteStorageConfigurationId,
-    @RequestHeader(value="x-okapi-token") String xOkapiToken,
-    @RequestHeader(value="x-okapi-tenant") String xOkapiTenant,
-    @RequestBody(required = false) String body) {
+  public ResponseEntity<ReturnItemResponse> returnItemByBarcode(
+      @ApiParam(required = true) @PathVariable("itemBarcode") String itemBarcode,
+      @ApiParam(required = true) @PathVariable("remoteStorageConfigurationId") String remoteStorageConfigurationId,
+      @ApiParam(required = true) @RequestHeader(value = "x-okapi-token") String xOkapiToken,
+      @ApiParam(required = true) @RequestHeader(value = "x-okapi-tenant") String xOkapiTenant,
+      @RequestBody(required = false) String body) {
+
     var headers = new HttpHeaders();
     headers.setContentType(MediaType.APPLICATION_JSON);
     var returnItemResponse = remoteStorageService
