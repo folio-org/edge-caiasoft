@@ -38,7 +38,7 @@ public class TenantAwareAWSParamStoreTest {
     Properties props = new Properties();
     props.put(AwsParamStore.PROP_REGION, "us-east-1");
     secureStore = new TenantAwareAWSParamStore(props);
-    MockitoAnnotations.initMocks(this);
+    MockitoAnnotations.openMocks(this);
   }
 
   @Test
