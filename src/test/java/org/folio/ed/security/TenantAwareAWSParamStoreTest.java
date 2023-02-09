@@ -7,6 +7,7 @@ import com.amazonaws.services.simplesystemsmanagement.model.Parameter;
 import lombok.extern.log4j.Log4j2;
 import org.folio.edge.api.utils.security.AwsParamStore;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -29,6 +30,7 @@ public class TenantAwareAWSParamStoreTest {
 
   @Mock
   AWSSimpleSystemsManagement ssm;
+  private AutoCloseable closeable;
 
   @InjectMocks
   TenantAwareAWSParamStore secureStore;
@@ -38,7 +40,12 @@ public class TenantAwareAWSParamStoreTest {
     Properties props = new Properties();
     props.put(AwsParamStore.PROP_REGION, "us-east-1");
     secureStore = new TenantAwareAWSParamStore(props);
-    MockitoAnnotations.openMocks(this);
+    closeable = MockitoAnnotations.openMocks(this);
+  }
+
+  @AfterEach
+  void releaseMocks() throws Exception {
+    closeable.close();
   }
 
   @Test
