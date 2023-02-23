@@ -1,4 +1,9 @@
-## 1.5.0 - Unreleased
+## 2.0.0 2023-02-23
+
+* [EDGCSOFT-46](https://issues.folio.org/browse/EDGCSOFT-46) - Logging improvement - Configuration
+* [EDGCSOFT-47](https://issues.folio.org/browse/EDGCSOFT-47) - Update to Java 17
+* [EDGCSOFT-48](https://issues.folio.org/browse/EDGCSOFT-48) - Update the module to Spring boot v3.0.0 and identify issues
+
 
 ## 1.4.0 - Released
 
