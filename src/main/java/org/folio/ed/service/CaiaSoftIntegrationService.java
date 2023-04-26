@@ -1,6 +1,7 @@
 package org.folio.ed.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.folio.ed.domain.dto.Configuration;
 import org.folio.ed.domain.dto.RetrievalQueueRecord;
 import org.folio.ed.handler.RetrievalQueueRecordHandler;
@@ -14,6 +15,7 @@ import static org.folio.ed.util.ConfigurationHelpers.resolvePollingTimeFrame;
 
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class CaiaSoftIntegrationService {
 
   private final IntegrationFlowContext integrationFlowContext;
@@ -23,6 +25,7 @@ public class CaiaSoftIntegrationService {
 
   @Scheduled(fixedDelayString = "${configurations.update.timeframe}")
   public void updateIntegrationFlows() {
+    log.debug("updateIntegrationFlows:: Updating integration flows");
     removeExistingFlows();
     for (String tenantId : sms.getCaiaSoftUserTenants()) {
       for (Configuration configuration : remoteStorageService.getCaiaSoftConfigurations(tenantId, sms.getConnectionParameters(tenantId).getOkapiToken())) {
@@ -32,11 +35,13 @@ public class CaiaSoftIntegrationService {
   }
 
   private void createFlows(Configuration configuration) {
+    log.debug("createFlows:: Creating flows for configuration: {}", configuration.getId());
     registerRetrievalsPoller(configuration);
     registerRetrievalQueueRecordFlow(configuration);
   }
 
   protected void removeExistingFlows() {
+    log.debug("removeExistingFlows:: Trying to remove if there are any Existing Flows");
     integrationFlowContext.getRegistry().keySet().forEach(key -> {
       integrationFlowContext.getRegistrationById(key).stop();
       integrationFlowContext.remove(key);
@@ -44,6 +49,8 @@ public class CaiaSoftIntegrationService {
   }
 
   public IntegrationFlowContext.IntegrationFlowRegistration registerRetrievalsPoller(Configuration configuration) {
+    log.debug("registerRetrievalsPoller:: Registering retrievals poller for configuration: {}", configuration.getId());
+    log.info("registerRetrievalsPoller:: Registered retrievals poller for configuration: {}", configuration.getId());
     return integrationFlowContext
       .registration(IntegrationFlow
         .fromSupplier(() -> remoteStorageService.getRetrievalQueueRecords(configuration.getId(), configuration.getTenantId(),
@@ -57,6 +64,8 @@ public class CaiaSoftIntegrationService {
   }
 
   public IntegrationFlowContext.IntegrationFlowRegistration registerRetrievalQueueRecordFlow(Configuration configuration) {
+    log.info("registerRetrievalQueueRecordFlow:: Registering retrieval queue record flow for configuration: {}", configuration.getId());
+    log.info("registerRetrievalQueueRecordFlow:: Registered retrieval queue record flow for configuration: {}", configuration.getId());
     return integrationFlowContext
       .registration(IntegrationFlow
         .from("retrievalQueueRecordFlow")

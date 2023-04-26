@@ -32,7 +32,7 @@ public class RetrievalQueueRecordHandler {
   private final RemoteStorageService remoteStorageService;
 
   public Object handle(RetrievalQueueRecord retrievalRecord, Configuration configuration) {
-    log.info("Handle retrieval record item barcode {} and request id {}", retrievalRecord.getItemBarcode(), retrievalRecord.getHoldId());
+    log.debug("handle:: Handle retrieval record item barcode {} and request id {}", retrievalRecord.getItemBarcode(), retrievalRecord.getHoldId());
     var headers = new HttpHeaders();
     headers.add(CAIA_SOFT_API_KEY_HEADER_NAME, configuration.getApiKey());
     headers.setContentType(MediaType.APPLICATION_JSON);
@@ -42,7 +42,7 @@ public class RetrievalQueueRecordHandler {
     if (response.getStatusCode() == HttpStatus.OK) {
       var okapiToken = sms.getConnectionParameters(configuration.getTenantId()).getOkapiToken();
       remoteStorageService.setRetrieved(retrievalRecord.getItemBarcode(), configuration.getTenantId(), okapiToken);
-      log.info("Retrieval record with item barcode {} and request id {} set retrieved", retrievalRecord.getItemBarcode(), retrievalRecord.getHoldId());
+      log.info("handle:: Retrieval record with item barcode {} and request id {} set retrieved", retrievalRecord.getItemBarcode(), retrievalRecord.getHoldId());
     }
     return null;
   }
@@ -53,12 +53,16 @@ public class RetrievalQueueRecordHandler {
   }
 
   private CaiaSoftRequest getCaiaSoftRequest(RetrievalQueueRecord retrievalRecord) {
+    log.debug("getCaiaSoftRequest:: Getting Caiasoft Request");
     var requestItem = CaiaSoftRequestItem.of(retrievalRecord.getHoldId(),
       retrievalRecord.getRequestType(), retrievalRecord.getItemBarcode(), retrievalRecord.getPickupLocation());
+    log.info("getCaiaSoftRequest:: Retrieved Caiasoft Request");
     return CaiaSoftRequest.of(Collections.singletonList(requestItem));
   }
 
   private ResponseEntity<String> post(String url, HttpHeaders headers, Object entity) {
+    log.debug("post:: Sending POST request to URL: {}", url);
+    log.info("post:: Sent POST request to URL: {}", url);
     return restTemplate.exchange(url, HttpMethod.POST, new HttpEntity<>(entity, headers), String.class);
   }
 }

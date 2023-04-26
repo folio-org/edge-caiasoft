@@ -2,6 +2,7 @@ package org.folio.ed.service;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.folio.ed.security.CaiaSoftSecureStoreFactory;
 import org.folio.ed.security.SecureTenantsProducer;
 import org.folio.edgecommonspring.domain.entity.ConnectionSystemParameters;
@@ -22,6 +23,7 @@ import static org.folio.edge.api.utils.util.PropertiesUtil.getProperties;
 
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class CaiaSoftSecurityManagerService {
 
   private final SecurityManagerService sms;
@@ -46,6 +48,7 @@ public class CaiaSoftSecurityManagerService {
 
   @PostConstruct
   public void init() {
+    log.debug("init:: Started Initializing CaiaSoftSecurityManagerService");
     var secureStoreProps = getProperties(secureStorePropsFile);
     var secureStore = CaiaSoftSecureStoreFactory.getSecureStore(secureStoreType, secureStoreProps);
     var tenants = SecureTenantsProducer.getTenants(secureStoreProps, secureStore, caiaSoftTenants);
@@ -54,9 +57,11 @@ public class CaiaSoftSecurityManagerService {
   }
 
   public ConnectionSystemParameters getConnectionParameters(String tenantId) {
+    log.debug("getConnectionParameters:: Trying to get connection parameters for tenantId: {}", tenantId);
     var apikey = Base64.getEncoder()
       .encodeToString(String.format(API_KEY_TEMPLATE, tenantId, caiaSoftClient, caiaSoftClient)
       .getBytes(StandardCharsets.UTF_8));
+    log.info("getConnectionParameters:: Got connection parameters for tenantId: {}", tenantId);
     return sms.getParamsWithToken(apikey);
   }
 }
