@@ -24,7 +24,7 @@ public class TenantAwareAWSParamStore extends AwsParamStore {
       .withWithDecryption(true);
 
     try {
-      log.warn("Retrieved tenants from AWS SSM parameter store: {}", this.ssm.getParameter(req).getParameter().getValue());
+      log.warn("Trying to Retrieve tenants from AWS SSM parameter store");
       return Optional.of(this.ssm.getParameter(req)
         .getParameter()
         .getValue());
