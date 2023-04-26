@@ -19,7 +19,7 @@ public class SecureTenantsProducer {
       if (stringOptional.isEmpty()) {
         log.warn("Tenants list not found in AWS Param store. Please create variable, which contains comma separated list of tenants");
       }
-      log.info("getTenants:: Retrieved tenants from AWS Param store: {}", stringOptional.get());
+      log.info("getTenants:: Retrieved tenants from AWS Param store");
       return stringOptional;
     }
     log.info("getTenants:: Retrieved tenants from secure store properties : {}", secureStoreProps.get("tenants"));
