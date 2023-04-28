@@ -50,7 +50,6 @@ public class CaiaSoftIntegrationService {
 
   public IntegrationFlowContext.IntegrationFlowRegistration registerRetrievalsPoller(Configuration configuration) {
     log.debug("registerRetrievalsPoller:: Registering retrievals poller for configuration: {}", configuration.getId());
-    log.info("registerRetrievalsPoller:: Registered retrievals poller for configuration: {}", configuration.getId());
     return integrationFlowContext
       .registration(IntegrationFlow
         .fromSupplier(() -> remoteStorageService.getRetrievalQueueRecords(configuration.getId(), configuration.getTenantId(),
@@ -64,8 +63,7 @@ public class CaiaSoftIntegrationService {
   }
 
   public IntegrationFlowContext.IntegrationFlowRegistration registerRetrievalQueueRecordFlow(Configuration configuration) {
-    log.info("registerRetrievalQueueRecordFlow:: Registering retrieval queue record flow for configuration: {}", configuration.getId());
-    log.info("registerRetrievalQueueRecordFlow:: Registered retrieval queue record flow for configuration: {}", configuration.getId());
+    log.debug("registerRetrievalQueueRecordFlow:: Registering retrieval queue record flow for configuration: {}", configuration.getId());
     return integrationFlowContext
       .registration(IntegrationFlow
         .from("retrievalQueueRecordFlow")
