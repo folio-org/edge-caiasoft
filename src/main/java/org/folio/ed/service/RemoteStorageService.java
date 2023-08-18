@@ -43,7 +43,8 @@ public class RemoteStorageService {
   }
 
   public List<Configuration> getCaiaSoftConfigurations(String tenantId, String okapiToken) {
-    log.debug("getCaiaSoftConfigurations:: Getting CaiaSoft configurations for tenantId: {}", tenantId);
+    log.info("getCaiaSoftConfigurations:: Getting CaiaSoft configurations for tenantId: {}", tenantId);
+    log.info("The okapiToken is " + okapiToken);
     var configurations = new ArrayList<Configuration>();
     remoteStorageClient.getStorageConfigurations(tenantId, okapiToken)
       .getResult()
