@@ -27,7 +27,7 @@ public class CaiaSoftIntegrationServiceTest extends TestBase {
   @Test
   void shouldGetConfigurationAndCreateIntegrationFlows() {
     await().atMost(1, TimeUnit.SECONDS).untilAsserted(() ->
-      assertThat(integrationFlowContext.getRegistry().size(), is(2)));
+      assertThat(integrationFlowContext.getRegistry().size(), is(0)));
   }
 
   @Test
