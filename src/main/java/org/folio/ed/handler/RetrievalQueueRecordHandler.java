@@ -41,7 +41,7 @@ public class RetrievalQueueRecordHandler {
     var response = post(caiaSoftCircUrl, headers, caiaSoftRequest);
     if (response.getStatusCode() == HttpStatus.OK) {
       var okapiToken = sms.getConnectionParameters(configuration.getTenantId()).getOkapiToken();
-      remoteStorageService.setRetrieved(retrievalRecord.getItemBarcode(), configuration.getTenantId(), okapiToken);
+      remoteStorageService.setRetrieved(retrievalRecord.getItemBarcode(), configuration.getTenantId(), okapiToken.accessToken());
       log.info("handle:: Retrieval record with item barcode {} and request id {} set retrieved", retrievalRecord.getItemBarcode(), retrievalRecord.getHoldId());
     }
     return null;

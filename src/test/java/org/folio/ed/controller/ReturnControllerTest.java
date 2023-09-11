@@ -26,7 +26,9 @@ public class ReturnControllerTest extends TestBase {
   void canReturnItem() {
     var apikey = Base64.getEncoder().encodeToString(TENANT_USER_DATA_FOR_APIKEY.getBytes());
     var returnUrl = String.format(RETURN_URL, edgePort, ITEM_BARCODE, REMOTE_STORAGE_CONFIGURATION_ID, apikey);
-    var response = post(returnUrl, new HttpHeaders(), "", ReturnItemResponse.class);
+    HttpHeaders headers = new HttpHeaders();
+    headers.set("x-okapi-tenant", "test_tenant");
+    var response = postCalls(returnUrl, headers, "", ReturnItemResponse.class);
     assertThat(response.getStatusCode(), is(HttpStatus.CREATED));
   }
 
@@ -36,7 +38,7 @@ public class ReturnControllerTest extends TestBase {
     var returnUrl = String.format(RETURN_URL, edgePort, ITEM_BARCODE, INVALID_REMOTE_STORAGE_CONFIGURATION_ID, apikey);
     var headers = new HttpHeaders();
     var exception = assertThrows(HttpClientErrorException.class,
-      () -> post(returnUrl, headers, "", ReturnItemResponse.class));
+      () -> postCalls(returnUrl, headers, "", ReturnItemResponse.class));
     assertThat(exception.getStatusCode(), equalTo(HttpStatus.BAD_REQUEST));
   }
 }

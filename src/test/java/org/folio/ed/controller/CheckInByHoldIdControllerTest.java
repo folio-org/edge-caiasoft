@@ -23,7 +23,7 @@ public class CheckInByHoldIdControllerTest extends TestBase {
     var headers = new HttpHeaders();
     headers.add(XOkapiHeaders.TOKEN, "test_token");
     headers.add(XOkapiHeaders.TENANT, "test_tenant");
-    var response = post(checkInUrl, headers,
+    var response = postCalls(checkInUrl, headers,
       new CheckInRequest(UUID.fromString("de58bad9-1a31-5f1c-bee6-f653ded15629")), String.class);
     assertThat(response.getStatusCode(), is(HttpStatus.OK));
   }
