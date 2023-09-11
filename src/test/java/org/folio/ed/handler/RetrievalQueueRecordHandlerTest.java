@@ -5,6 +5,7 @@ import org.folio.ed.domain.dto.RetrievalQueueRecord;
 import org.folio.ed.service.CaiaSoftSecurityManagerService;
 import org.folio.ed.service.RemoteStorageService;
 import org.folio.edgecommonspring.domain.entity.ConnectionSystemParameters;
+import org.folio.spring.model.UserToken;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;
@@ -22,6 +23,8 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.time.Instant;
 
 @ExtendWith(MockitoExtension.class)
 public class RetrievalQueueRecordHandlerTest {
@@ -50,7 +53,7 @@ public class RetrievalQueueRecordHandlerTest {
     var responseEntity = new ResponseEntity<>("OK", HttpStatus.OK);
     var connectionSystemParameters = new ConnectionSystemParameters();
     connectionSystemParameters.setTenantId("tenantId");
-    connectionSystemParameters.setOkapiToken("okapiToken");
+    connectionSystemParameters.setOkapiToken(new UserToken("okapiToken", Instant.now()));
 
     when(sms.getConnectionParameters(anyString())).thenReturn(connectionSystemParameters);
     when(restTemplate.exchange(anyString(), eq(HttpMethod.POST), any(), ArgumentMatchers.<Class<String>>any())).thenReturn(responseEntity);
