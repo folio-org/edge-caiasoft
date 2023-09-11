@@ -28,7 +28,7 @@ public class CaiaSoftIntegrationService {
     log.debug("updateIntegrationFlows:: Updating integration flows");
     removeExistingFlows();
     for (String tenantId : sms.getCaiaSoftUserTenants()) {
-      for (Configuration configuration : remoteStorageService.getCaiaSoftConfigurations(tenantId, sms.getConnectionParameters(tenantId).getOkapiToken())) {
+      for (Configuration configuration : remoteStorageService.getCaiaSoftConfigurations(tenantId, sms.getConnectionParameters(tenantId).getOkapiToken().accessToken())) {
         createFlows(configuration);
       }
     }
@@ -53,7 +53,7 @@ public class CaiaSoftIntegrationService {
     return integrationFlowContext
       .registration(IntegrationFlow
         .fromSupplier(() -> remoteStorageService.getRetrievalQueueRecords(configuration.getId(), configuration.getTenantId(),
-          sms.getConnectionParameters(configuration.getTenantId()).getOkapiToken()),
+          sms.getConnectionParameters(configuration.getTenantId()).getOkapiToken().accessToken()),
           p -> p.poller(Pollers.fixedDelay(resolvePollingTimeFrame(configuration.getAccessionDelay(),
             configuration.getAccessionTimeUnit()))))
         .split()
