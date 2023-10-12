@@ -1,3 +1,10 @@
+## 2.1.0 2023-10-12
+
+* [EDGCSOFT-34](https://issues.folio.org/browse/EDGCSOFT-34) - Logging improvement
+* [EDGCSOFT-50](https://issues.folio.org/browse/EDGCSOFT-50) - Migrate to folio-spring-support v7.0.0
+* [EDGCSOFT-53](https://issues.folio.org/browse/EDGCSOFT-53) - Implement RTR for edge-caiasoft
+* [EDGCSOFT-56](https://issues.folio.org/browse/EDGCSOFT-56) - Migrate to folio-spring-support 7.2.x and Spring Boot 3.1.x
+
 ## 2.0.0 2023-02-23
 
 * [EDGCSOFT-46](https://issues.folio.org/browse/EDGCSOFT-46) - Logging improvement - Configuration
