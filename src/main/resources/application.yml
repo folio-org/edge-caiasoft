@@ -48,6 +48,7 @@ folio:
     enabled: false
   system-user:
     username: ${SYSTEM_USER_NAME:system-user}
+    password: ${SYSTEM_USER_PASSWORD}
   environment: ${ENV:folio}
   okapi-url: ${Dokapi_url:http://okapi:9130}
 
