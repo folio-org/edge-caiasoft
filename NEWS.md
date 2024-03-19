@@ -1,3 +1,8 @@
+## 2.2.0 2024-03-19
+
+* [EDGCSOFT-57](https://issues.folio.org/browse/EDGCSOFT-57) - Spring Boot 3.1.6 fixing Denial of Service
+* [EDGCSOFT-59](https://issues.folio.org/browse/EDGCSOFT-59) - Update Spring version for Quesnellia
+
 ## 2.1.0 2023-10-12
 
 * [EDGCSOFT-34](https://issues.folio.org/browse/EDGCSOFT-34) - Logging improvement
