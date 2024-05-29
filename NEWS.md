@@ -1,3 +1,7 @@
+## 2.2.2 2024-05-29
+
+* [EDGCSOFT-62](https://issues.folio.org/browse/EDGCSOFT-62) - Code enhancement.
+
 ## 2.2.1 2024-05-27
 
 * [EDGCSOFT-62](https://issues.folio.org/browse/EDGCSOFT-62) - Enhance RemoteStorageClient TLS Configuration for Secure Connections to OKAPI
