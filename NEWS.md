@@ -1,3 +1,7 @@
+## 2.2.4 2024-07-03
+
+* [EDGCSOFT-70](https://issues.folio.org/browse/EDGCSOFT-70) - edge-common-spring 2.4.5: AwsParamStore to support FIPS-approved crypto modules
+
 ## 2.2.3 2024-07-02
 
 * [EDGCSOFT-68](https://issues.folio.org/browse/EDGCSOFT-68) - edge-common-spring 2.4.4, Spring Boot 3.2.6 fixing vulns
