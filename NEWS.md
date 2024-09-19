@@ -1,3 +1,8 @@
+## 2.1.1 2024-09-19
+
+* [EDGCSOFT-57](https://folio-org.atlassian.net/browse/EDGCSOFT-57) Spring Boot 3.1.6 fixing Denial of Service
+* [EDGCSOFT-72](https://folio-org.atlassian.net/browse/EDGCSOFT-72) edge-caiasoft 2.1.1 fixing HTTP request smuggling - Spring Boot 3.1.12
+
 ## 2.1.0 2023-10-12
 
 * [EDGCSOFT-34](https://issues.folio.org/browse/EDGCSOFT-34) - Logging improvement
