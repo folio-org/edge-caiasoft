@@ -1,3 +1,13 @@
+## 2.3.0 2024-10-31
+
+* [EDGCSOFT-57](https://folio-org.atlassian.net/browse/EDGCSOFT-57) - Spring Boot 3.1.6 fixing Denial of Service
+* [EDGCSOFT-62](https://folio-org.atlassian.net/browse/EDGCSOFT-62) - Enhance RemoteStorageClient TLS Configuration for Secure Connections to OKAPI
+* [EDGCSOFT-63](https://folio-org.atlassian.net/browse/EDGCSOFT-63) - Enhance HTTP Endpoint Security with TLS and FIPS-140-2 Compliant Cryptography
+* [EDGCSOFT-68](https://folio-org.atlassian.net/browse/EDGCSOFT-68) - edge-common-spring 2.4.4, Spring Boot 3.2.6 fixing vulns
+* [EDGCSOFT-70](https://folio-org.atlassian.net/browse/EDGCSOFT-70) - edge-common-spring 2.4.5: AwsParamStore to support FIPS-approved crypto modules
+* [EDGCSOFT-72](https://folio-org.atlassian.net/browse/EDGCSOFT-72) - edge-caiasoft 2.1.1 fixing HTTP request smuggling
+
+
 ## 2.2.3 2024-07-02
 
 * [EDGCSOFT-68](https://issues.folio.org/browse/EDGCSOFT-68) - edge-common-spring 2.4.4, Spring Boot 3.2.6 fixing vulns
