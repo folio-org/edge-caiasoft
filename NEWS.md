@@ -1,3 +1,7 @@
+## 2.3.2 2024-11-20
+
+* Changes related to TLS support
+
 ## 2.3.1 2024-10-31
 
 * [EDGCSOFT-57](https://folio-org.atlassian.net/browse/EDGCSOFT-57) - Spring Boot 3.1.6 fixing Denial of Service
