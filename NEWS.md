@@ -1,3 +1,7 @@
+## 2.2.5 2025-01-20
+
+* [EDGCSOFT-79](https://folio-org.atlassian.net/browse/EDGCSOFT-79) - Spring Boot 3.2.12 fixing tomcat-embed-core vulns
+
 ## 2.2.4 2024-07-03
 
 * [EDGCSOFT-70](https://issues.folio.org/browse/EDGCSOFT-70) - edge-common-spring 2.4.5: AwsParamStore to support FIPS-approved crypto modules
