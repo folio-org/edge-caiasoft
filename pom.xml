@@ -23,7 +23,7 @@
 
   <properties>
     <java.version>21</java.version>
-    <edge-common-spring.version>3.0.0-SNAPSHOT</edge-common-spring.version>
+    <edge-common-spring.version>3.1.0-SNAPSHOT</edge-common-spring.version>
     <mapstruct.version>1.6.2</mapstruct.version>
     <wiremock.version>3.4.2</wiremock.version>
     <awaitility.version>4.2.2</awaitility.version>
