@@ -1,6 +1,6 @@
 package org.folio.ed.security;
 
-import com.amazonaws.services.simplesystemsmanagement.model.GetParameterRequest;
+import software.amazon.awssdk.services.ssm.model.GetParameterRequest;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.folio.edge.api.utils.security.AwsParamStore;
@@ -20,14 +20,16 @@ public class TenantAwareAWSParamStore extends AwsParamStore {
   public Optional<String> getTenants(String tenantsParameter) {
     log.debug("getTenants:: Retrieving Tenants with tenantsParameter: {}", tenantsParameter);
     String key = StringUtils.isNotEmpty(tenantsParameter) ? tenantsParameter : DEFAULT_AWS_KEY_PARAMETER;
-    GetParameterRequest req = (new GetParameterRequest()).withName(key)
-      .withWithDecryption(true);
+    GetParameterRequest req = GetParameterRequest.builder()
+      .name(key)
+      .withDecryption(true)
+      .build();
 
     try {
       log.warn("Trying to Retrieve tenants from AWS SSM parameter store");
       return Optional.of(this.ssm.getParameter(req)
-        .getParameter()
-        .getValue());
+        .parameter()
+        .value());
     } catch (Exception e) {
       log.warn("Cannot get tenants list from key: " + key, e);
       return Optional.empty();
