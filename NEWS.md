@@ -1,3 +1,7 @@
+## 2.4.0 2025-03-14
+* [EDGCSOFT-77](https://folio-org.atlassian.net/browse/EDGCSOFT-77) - Migrate AWS SDK for Java from 1.x to 2.x
+* [FOLIO-4228](https://folio-org.atlassian.net/browse/FOLIO-4228) - Update to Java 21
+
 ## 2.3.2 2024-11-20
 
 * Changes related to TLS support
