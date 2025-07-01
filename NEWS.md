@@ -1,4 +1,4 @@
-## 2.4.1 in progress
+## 2.4.1 2025-07-01
 * [EDGCSOFT-83](https://folio-org.atlassian.net/browse/EDGCSOFT-83) - Spring Boot 3.4.7 fixing vulns in tomcat-embed-core and spring-web
 
 ## 2.4.0 2025-03-14
