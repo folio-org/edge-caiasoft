@@ -1,3 +1,7 @@
+## 2.3.3 2025-07-01
+
+* [EDGCSOFT-84](https://folio-org.atlassian.net/browse/EDGCSOFT-84) - Spring Boot 3.3.13 fixing vulns (Ramsons)
+
 ## 2.3.2 2024-11-20
 
 * Changes related to TLS support
