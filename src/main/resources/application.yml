@@ -36,7 +36,7 @@ feign:
   client:
     config:
       default:
-        loggerLevel: full
+        loggerLevel: basic
 
 logging:
   level:

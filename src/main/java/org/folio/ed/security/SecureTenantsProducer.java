@@ -22,7 +22,7 @@ public class SecureTenantsProducer {
       log.info("getTenants:: Retrieved tenants from AWS Param store");
       return stringOptional;
     }
-    log.info("getTenants:: Retrieved tenants from secure store properties : {}", secureStoreProps.get("tenants"));
+    log.info("getTenants:: Retrieved tenants from secure store properties");
     return Optional.of((String) secureStoreProps.get("tenants"));
   }
 }

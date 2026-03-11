@@ -18,7 +18,7 @@ public class TenantAwareAWSParamStore extends AwsParamStore {
   }
 
   public Optional<String> getTenants(String tenantsParameter) {
-    log.debug("getTenants:: Retrieving Tenants with tenantsParameter: {}", tenantsParameter);
+    log.debug("getTenants:: Retrieving tenants from AWS SSM");
     String key = StringUtils.isNotEmpty(tenantsParameter) ? tenantsParameter : DEFAULT_AWS_KEY_PARAMETER;
     GetParameterRequest req = GetParameterRequest.builder()
       .name(key)
@@ -31,7 +31,7 @@ public class TenantAwareAWSParamStore extends AwsParamStore {
         .parameter()
         .value());
     } catch (Exception e) {
-      log.warn("Cannot get tenants list from key: " + key, e);
+      log.warn("Cannot get tenants list from AWS SSM parameter store", e);
       return Optional.empty();
     }
   }

@@ -61,7 +61,7 @@ public class RetrievalQueueRecordHandler {
   }
 
   private ResponseEntity<String> post(String url, HttpHeaders headers, Object entity) {
-    log.debug("post:: Sending POST request to URL: {}", url);
+    log.debug("post:: Sending POST request to circulation endpoint");
     return restTemplate.exchange(url, HttpMethod.POST, new HttpEntity<>(entity, headers), String.class);
   }
 }
