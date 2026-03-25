@@ -19,10 +19,6 @@ spring:
     enabled: false
   flyway:
     enabled: false
-  cloud:
-    openfeign:
-      okhttp:
-        enabled: true
 management:
   endpoints:
     web:
@@ -32,11 +28,6 @@ management:
   endpoint:
     loggers:
       enabled: true
-feign:
-  client:
-    config:
-      default:
-        loggerLevel: basic
 
 logging:
   level:

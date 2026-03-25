@@ -1,6 +1,7 @@
 package org.folio.ed;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -29,6 +30,18 @@ public class TestBase {
   // This value must correspond port from testing properties okapi url
   public final static int OKAPI_PORT = 3333;
 
+  static {
+    wireMockServer = new WireMockServer(WireMockConfiguration.wireMockConfig().port(OKAPI_PORT));
+    wireMockServer.start();
+
+    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+      if (wireMockServer != null && wireMockServer.isRunning()) {
+        log.info("Shutting down WireMock server...");
+        wireMockServer.stop();
+      }
+    }));
+  }
+
   @BeforeEach
   void setUp() {
     wireMockServer.resetAll();
@@ -37,13 +50,6 @@ public class TestBase {
   @BeforeAll
   static void testSetup() {
     restTemplate = new RestTemplate();
-    wireMockServer = new WireMockServer(OKAPI_PORT);
-    wireMockServer.start();
-  }
-
-  @AfterAll
-  static void tearDown() {
-    wireMockServer.stop();
   }
 
   public <T> ResponseEntity<T> get(String url, HttpHeaders headers, Class<T> clazz) {
