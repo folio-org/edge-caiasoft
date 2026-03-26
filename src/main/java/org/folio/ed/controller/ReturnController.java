@@ -8,7 +8,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +18,6 @@ public class ReturnController implements RequestBarcodesApi {
   private final RemoteStorageService remoteStorageService;
 
   @Override
-  @PostMapping(value = "/RequestBarcodes/{itemBarcode}/reshelved/{remoteStorageConfigurationId}")
   public ResponseEntity<ReturnItemResponse> returnItemByBarcode(String itemBarcode,
       String remoteStorageConfigurationId, String xOkapiToken, String xOkapiTenant, String body) {
 
