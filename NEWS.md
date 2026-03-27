@@ -1,6 +1,7 @@
 ## 2.5.0 in progress
 * [EDGCSOFT-83](https://folio-org.atlassian.net/browse/EDGCSOFT-83) - Spring Boot 3.4.7 fixing vulns in tomcat-embed-core and spring-web
 * [EDGCSOFT-86](https://folio-org.atlassian.net/browse/EDGCSOFT-86) - Use GitHub Workflows for Maven
+* [EDGCSOFT-85](https://folio-org.atlassian.net/browse/EDGCSOFT-85) - Migrate to Spring Boot 4
 
 ## 2.4.0 2025-03-14
 * [EDGCSOFT-77](https://folio-org.atlassian.net/browse/EDGCSOFT-77) - Migrate AWS SDK for Java from 1.x to 2.x

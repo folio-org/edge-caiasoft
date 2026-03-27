@@ -1,3 +1,4 @@
+Dokapi_url: http://localhost:3333
 okapi_url: http://localhost:3333
 Dsecure_store_props: src/test/resources/ephemeral.properties
 secure_store_props: ${Dsecure_store_props}
@@ -15,11 +16,14 @@ spring:
   flyway:
     enabled: false
 
-feign:
-  client:
-    config:
-      default:
-        loggerLevel: basic
+folio:
+  logging:
+    request:
+      enabled: true
+      level: BASIC
+    exchange:
+      enabled: true
+      level: BASIC
 
 logging:
   level:
@@ -30,7 +34,6 @@ logging:
 folio.tenant.validation.enabled: false
 folio.client.okapiUrl: http://localhost:3333
 folio.client.tls.enabled: false
-
 
 # disable scheduling
 app.scheduling.enable: false
