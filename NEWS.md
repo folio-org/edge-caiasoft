@@ -1,7 +1,24 @@
-## 2.5.0 in progress
-* [EDGCSOFT-83](https://folio-org.atlassian.net/browse/EDGCSOFT-83) - Spring Boot 3.4.7 fixing vulns in tomcat-embed-core and spring-web
-* [EDGCSOFT-86](https://folio-org.atlassian.net/browse/EDGCSOFT-86) - Use GitHub Workflows for Maven
-* [EDGCSOFT-85](https://folio-org.atlassian.net/browse/EDGCSOFT-85) - Migrate to Spring Boot 4
+## 3.0.0 2026-04-17
+
+### Breaking changes
+* Migrate to Spring Boot 4 ([EDGCSOFT-85](https://folio-org.atlassian.net/browse/EDGCSOFT-85))
+
+### Features
+* Audit PII handling and logging ([EDGCSOFT-80](https://folio-org.atlassian.net/browse/EDGCSOFT-80))
+
+### Bug fixes
+* Spring Boot 3.4.7 fixing vulns in tomcat-embed-core and spring-web ([EDGCSOFT-83](https://folio-org.atlassian.net/browse/EDGCSOFT-83))
+
+### Tech Debt
+* Use GitHub Workflows for Maven ([EDGCSOFT-86](https://folio-org.atlassian.net/browse/EDGCSOFT-86))
+* Add Dependabot config, CODEOWNERS and pull request template ([EDGCSOFT-82](https://folio-org.atlassian.net/browse/EDGCSOFT-82))
+
+### Dependencies
+* Bump `spring-boot` from `3.4.3` to `4.0.5`
+* Bump `edge-common-spring` from `3.0.0` to `4.0.0`
+* Bump `openapi-generator-maven-plugin` from `7.12.0` to `7.21.0`
+* Bump `wiremock-standalone` from `3.12.1` to `3.13.2`
+* Bump `lombok` from `1.18.42` to `1.18.44`
 
 ## 2.4.0 2025-03-14
 * [EDGCSOFT-77](https://folio-org.atlassian.net/browse/EDGCSOFT-77) - Migrate AWS SDK for Java from 1.x to 2.x
