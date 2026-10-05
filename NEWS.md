@@ -1,3 +1,8 @@
+## WIP
+
+### Features
+* Upgrade from Java 21 to Java 25 ([EDGCSOFT-95](https://folio-org.atlassian.net/browse/EDGCSOFT-95))
+
 ## 3.0.0 2026-04-17
 
 ### Breaking changes
