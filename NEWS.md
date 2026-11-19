@@ -1,3 +1,8 @@
+## 3.0.2 2026-11-19
+
+### Dependencies
+* Bump `spring-boot` to `4.1.1` ([EDGCSOFT-97](https://folio-org.atlassian.net/browse/EDGCSOFT-97))
+
 ## 3.0.1 2026-07-28
 
 ### Dependencies
